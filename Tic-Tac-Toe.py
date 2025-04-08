@@ -8,3 +8,12 @@ class TicTacToe:
     print("n\")
     print(self.board[0], "|", self.board[1], "|", self.board[2])
 
+
+  def move(self, spot, player):
+    if self.board[spot] == " ":
+      self.board[spot] = player
+      return true
+    else:
+      print("Something already there")
+      return false
+      
