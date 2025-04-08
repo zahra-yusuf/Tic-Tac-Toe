@@ -6,5 +6,5 @@ class TicTacToe:
 
   def TheBoard(self):
     print("n\")
-
+    print(self.board[0], "|", self.board[1], "|", self.board[2])
 
