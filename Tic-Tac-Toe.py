@@ -54,19 +54,10 @@ def the_winner(self):
           return True
   return False
 
-
+def a_draw(self):
+  return " " not in self.board
   
       
-
-
-
-
-
-
-
-
-
-
 
 
 
