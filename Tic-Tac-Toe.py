@@ -13,27 +13,16 @@ class TicTacToe:
 
    #gets a move from the player       
   def get_move(self): 
-    move = int(input("pick a number 1-9"))
-    if move == "1":
-      return 0
-    elif move == "2":
-      return 1
-    elif move == "3":
-      return 2
-    elif move == "4":
-      return 3
-    elif move == "5":
-      return 4
-    elif move == "6":
-      return 5
-    elif move == "7":
-      return 6 
-    elif move == "8":
-      return 7
-    elif move == "9":
-      return 8
-    else:
-      print("Pick a different move.-- invalid number")
+    while True:
+        try:
+            move = int(input("Pick a number (1-9): ")) - 1
+            if 0 <= move <= 8:
+                return move
+            else:
+                print("Invalid input. Try again.")
+        except ValueError:
+            print("Please enter a number.")
+     
 
 def update_board(self, index):
   if self.board[index] == " ":
@@ -62,3 +51,28 @@ def switch_player(self):
     self.current = self.player2
   else:
     self.current = self.player1
+
+#method that controls the whole game flow
+def play_game(self):
+    print("Welcome to Tic Tac Toe!")
+    self.TheBoard()
+
+    while True:
+        print(f"{self.current}'s turn.")
+        move = self.get_move()
+        self.update_board(move)
+        self.TheBoard()
+
+        if self.the_winner():
+            print(f"Congratulations {self.current}, you win!")
+            break
+
+        if self.a_draw():
+            print("It's a draw!")
+            break
+
+        self.switch_player()
+
+#calling the class in the main program
+game = TicTacToe("X", "O")
+game.play_game()
