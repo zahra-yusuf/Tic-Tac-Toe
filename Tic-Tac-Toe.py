@@ -43,6 +43,16 @@ def update_board(self, index):
     new_index = self.get_move()
     self.update_board(new_index)
   
+def the_winner(self):
+  wins = [
+    [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]
+  ]
+  for combination in wins:
+    if self.board[combination[0]] == self.board[combination[1]]:
+      if self.board[combination[1]] == self.board[combination[2]]:
+        if self.board[combination[0]] != " ":
+          return True
+  return False
 
 
   
