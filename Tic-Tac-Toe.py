@@ -47,3 +47,22 @@ def update_board(self, index):
 
   
       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def switch_player(self):
+  if self.current == self.player1:
+    self.current = self.player2
+  else:
+    self.current = self.player1
