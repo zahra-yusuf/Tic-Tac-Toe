@@ -3,7 +3,7 @@ class TicTacToe:
     self.board=[" "] * 9 #first instance variable
     self.player1 = ""  #second instance variable
     self.player2 = ""  #third instance variable
-
+    self.current = self.player1
   #shows the board
   def TheBoard(self):
     print("n\")
@@ -34,14 +34,16 @@ class TicTacToe:
       return 8
     else:
       print("Pick a different move.-- invalid number")
+
+def update_board(self, index):
+  if self.board[index] == " ":
+    self.board[index] = self.current
+  else:
+    print(" Pick a different move.")
+    new_index = self.get_move()
+    self.update_board(new_index)
   
 
 
-  def move(self, spot, player):
-    if self.board[spot] == " ":
-      self.board[spot] = player
-      return true
-    else:
-      print("Something already there")
-      return false
+  
       
