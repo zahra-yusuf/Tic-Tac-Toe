@@ -55,12 +55,7 @@ def the_winner(self):
   return False
 
 def a_draw(self):
-  return " " not in self.board
-  
-      
-
-
-
+  return " " not in self.board 
 
 def switch_player(self):
   if self.current == self.player1:
