@@ -24,36 +24,36 @@ class TicTacToe:
             print("Please enter a number.")
      
 
-def update_board(self, index):
-  if self.board[index] == " ":
-    self.board[index] = self.current
-  else:
-    print(" Pick a different move.")
-    new_index = self.get_move()
-    self.update_board(new_index)
+  def update_board(self, index):
+    if self.board[index] == " ":
+      self.board[index] = self.current
+    else:
+      print(" Pick a different move.")
+      new_index = self.get_move()
+      self.update_board(new_index)
   
-def the_winner(self):
-  wins = [
-    [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]
-  ]
-  for combination in wins:
-    if self.board[combination[0]] == self.board[combination[1]]:
-      if self.board[combination[1]] == self.board[combination[2]]:
-        if self.board[combination[0]] != " ":
-          return True
-  return False
+  def the_winner(self):
+    wins = [
+      [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]
+    ]
+    for combination in wins:
+      if self.board[combination[0]] == self.board[combination[1]]:
+        if self.board[combination[1]] == self.board[combination[2]]:
+          if self.board[combination[0]] != " ":
+            return True
+    return False
 
-def a_draw(self):
-  return " " not in self.board 
+  def a_draw(self):
+    return " " not in self.board 
 
-def switch_player(self):
+  def switch_player(self):
   if self.current == self.player1:
     self.current = self.player2
   else:
     self.current = self.player1
 
 #method that controls the whole game flow
-def play_game(self):
+  def play_game(self):
     print("Welcome to Tic Tac Toe!")
     self.TheBoard()
 
