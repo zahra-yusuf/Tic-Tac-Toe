@@ -1,10 +1,10 @@
 class TicTacToe:
   def __init__(self, board, player1, player2):
-    self.board=[" "] * 9 #first instance variable
-    self.player1 = ""  #second instance variable
-    self.player2 = ""  #third instance variable
+    self.board=[" "] * 9 
+    self.player1 = player1
+    self.player2 = player2
     self.current = self.player1
-  #shows the board
+  
   def TheBoard(self):
     print("\n")
     print(self.board[0], "|", self.board[1], "|", self.board[2])
@@ -47,10 +47,10 @@ class TicTacToe:
     return " " not in self.board 
 
   def switch_player(self):
-  if self.current == self.player1:
-    self.current = self.player2
-  else:
-    self.current = self.player1
+    if self.current == self.player1:
+      self.current = self.player2
+    else:
+      self.current = self.player1
 
 #method that controls the whole game flow
   def play_game(self):
