@@ -5,7 +5,7 @@ class TicTacToe:
     self.player2 = player2
     self.current = self.player1
   
-  def TheBoard(self):
+  def TheBoard(self):  
     print("\n")
     print(self.board[0], "|", self.board[1], "|", self.board[2])
     print(self.board[3], "|", self.board[4], "|", self.board[5])
@@ -29,8 +29,7 @@ class TicTacToe:
       self.board[index] = self.current
     else:
       print(" Pick a different move.")
-      new_index = self.get_move()
-      self.update_board(new_index)
+      self.update_board(self.get_move())
   
   def the_winner(self):
     wins = [
