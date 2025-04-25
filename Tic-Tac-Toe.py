@@ -41,7 +41,8 @@ class TicTacToe:
     else:
       print(" Pick a different move.")
       self.update_board(self.get_move())
-  
+
+  #determines the winner
   def the_winner(self):
     wins = [
       [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]
@@ -52,7 +53,7 @@ class TicTacToe:
           if self.board[combination[0]] != " ":
             return True
     return False
-
+#checks if it is a draw
   def a_draw(self):
     return " " not in self.board 
 
