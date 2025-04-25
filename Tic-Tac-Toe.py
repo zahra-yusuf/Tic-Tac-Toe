@@ -4,6 +4,7 @@ class TicTacToe:
     self.player1 = player1
     self.player2 = player2
     self.current = self.player1
+    self.scoreboard ={self.player1: 0, self.player2: 0}
   
   def TheBoard(self):  
     print("\n")
@@ -66,6 +67,7 @@ class TicTacToe:
 
         if self.the_winner():
             print(f"Congratulations {self.current}, you win!")
+            self.scoreboard[self.current] += 1
             break
 
         if self.a_draw():
