@@ -9,11 +9,11 @@ class TicTacToe:
     self.scoreboard = {self.player1: 0, self.player2: 0}
     self.rounds_played = 0
 
-  #makes sure board is clear to start new game
+#makes sure board is clear to start new game
   def resetboard(self):
     self.board = [" "] * 9
-    self.current = self.player 1
-    
+    self.current = self.player1
+  
   #creates the board
   def TheBoard(self):  
     print("\n")
@@ -27,7 +27,7 @@ class TicTacToe:
   def get_move(self): 
     while True:
         try:                                                        #exception handling
-            move = int(input("Pick a number (1-9): ")) - 1
+            move = int(input("Pick a number between 1 and 9: ")) - 1
             if 0 <= move <= 8:
               if self.board[move] == " ":
                 return move
@@ -91,5 +91,14 @@ class TicTacToe:
         self.switch_player()
 
 #calling the class in the main program
+restboard()
 game = TicTacToe("X", "O")
 game.play_game()
+
+choice = input("Play again? (y/n): ").lower()
+if choice == 'y':
+    self.resetboard()
+    self.play_game()
+else:
+    print("Thanks for playing!")
+    print("Final scores:", self.scoreboard)
