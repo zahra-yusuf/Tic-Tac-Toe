@@ -1,5 +1,5 @@
 class TicTacToe:
-  #assigning values to the attributes of object TicTacToe
+  #Initializing the Players, Board and Score
   def __init__(self, player1, player2):
     self.board=[" "] * 9 #Nine empty spaces
     self.player1 = player1
@@ -9,12 +9,12 @@ class TicTacToe:
     self.scoreboard = {self.player1: 0, self.player2: 0}
     self.rounds_played = 0
 
-#makes sure board is clear to start new game
+#Resets all spots back to blanks
   def resetboard(self):
     self.board = [" "] * 9
     self.current = self.player1
   
-  #creates the board
+  #Creates the board to be more clearer
   def TheBoard(self):  
     print("\n")
     print(self.board[0], "|", self.board[1], "|", self.board[2])
@@ -38,7 +38,7 @@ class TicTacToe:
         except ValueError:
             print("Please enter a number.")
      
-#updates the board with the current players move. 
+#Places current players symbol down
   def update_board(self, index):
     if self.board[index] == " ":
       self.board[index] = self.symbols[self.current]
@@ -46,10 +46,10 @@ class TicTacToe:
       print(" Pick a different move.")
       self.update_board(self.get_move())
 
-  #determines the winner
+  #Checks if board has winning combination
   def the_winner(self):
     wins = [
-      [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]
+      (0, 1, 2), (3, 4, 5), (6, 7, 8), (0, 3, 6), (1, 4, 7), (2, 5, 8), (0, 4, 8), (2, 4, 6)
     ]
     for combination in wins:
       if self.board[combination[0]] == self.board[combination[1]]:
@@ -58,10 +58,10 @@ class TicTacToe:
             return True
     return False
     
-#checks if it is a draw
+#Checks if board is full with no winners
   def a_draw(self):
     return " " not in self.board 
-
+#Switches turn between players
   def switch_player(self):
     if self.current == self.player1:
       self.current = self.player2
@@ -101,6 +101,7 @@ with open("TicTacToe.txt", "a") as a file:
 resetboard()
 game = TicTacToe("X", "O")
 game.play_game()
+#Starts Game
 
 choice = input("Play again? (y/n): ").lower()
 if choice == 'y':
