@@ -9,14 +9,14 @@ class TicTacToe:
     self.rounds_played = 0
   def resetboard(self):
     self.board = [" "] * 9
-    self.current = self.player 1
+    self.current = self.player1
   #shows the board
   def TheBoard(self):  
     print("\n")
     print(self.board[0], "|", self.board[1], "|", self.board[2])
-    print("-------------------------------------------------")
+    print("--------------------")
     print(self.board[3], "|", self.board[4], "|", self.board[5])
-    print("-------------------------------------------------")
+    print("--------------------")
     print(self.board[6], "|", self.board[7], "|", self.board[8])
 
    #gets a move from the player       
@@ -83,7 +83,12 @@ class TicTacToe:
             break
 
         self.switch_player()
-
+with open("TicTacToe.txt", "a") as a file:
+  if self._thewinner:
+    file.write(f"{self.current} wins!\n")
+  if a_draw:
+    file.write(f"It's a draw!\n")
+  file.write(f"Final Scoreboard: {self.scoreboard}\n\n")
 #calling the class in the main program
 game = TicTacToe("X", "O")
 game.play_game()
