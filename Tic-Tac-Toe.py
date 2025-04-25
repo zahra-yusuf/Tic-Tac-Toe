@@ -90,6 +90,13 @@ class TicTacToe:
 
         self.switch_player()
 
+with open("TicTacToe.txt", "a") as a file:
+  if self._thewinner:
+    file.write(f"{self.current} wins!\n")
+  if a_draw:
+    file.write(f"It's a draw!\n")
+  file.write(f"Final Scoreboard: {self.scoreboard}\n\n")
+
 #calling the class in the main program
 restboard()
 game = TicTacToe("X", "O")
