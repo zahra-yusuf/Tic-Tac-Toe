@@ -18,9 +18,9 @@ class TicTacToe:
   def TheBoard(self):  
     print("\n")
     print(self.board[0], "|", self.board[1], "|", self.board[2])
-    print("-------------------------------------------------")
+    print("------------")
     print(self.board[3], "|", self.board[4], "|", self.board[5])
-    print("-------------------------------------------------")
+    print("------------")
     print(self.board[6], "|", self.board[7], "|", self.board[8])
 
    #gets a move from the player       
@@ -49,7 +49,9 @@ class TicTacToe:
   #determines the winner
   def the_winner(self):
     wins = [
-      [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]
+      (0, 1, 2), (3, 4, 5), (6, 7, 8),
+      (0, 3, 6), (1, 4, 7), (2, 5, 8),
+      (0, 4, 8), (2, 4, 6)
     ]
     for combination in wins:
       if self.board[combination[0]] == self.board[combination[1]]:
@@ -90,22 +92,22 @@ class TicTacToe:
 
         self.switch_player()
 
-with open("TicTacToe.txt", "a") as a file:
-  if self._thewinner:
-    file.write(f"{self.current} wins!\n")
-  if a_draw:
-    file.write(f"It's a draw!\n")
-  file.write(f"Final Scoreboard: {self.scoreboard}\n\n")
+    with open("TicTacToe.txt", "a") as file:
+      file.write("Player, Result, Score\n")
+      if self.the_winner():
+        file.write(f"{self.current}, Win, {self.scoreboard[self.current]}\n\n")
+      elif self.a_draw():
+        file.write(f"{self.current}, Draw, {self.scoreboard[self.current]}\n\n")
+      file.write(f"Final Scoreboard: {self.scoreboard}\n\n")
 
 #calling the class in the main program
-restboard()
 game = TicTacToe("X", "O")
-game.play_game()
-
-choice = input("Play again? (y/n): ").lower()
-if choice == 'y':
-    self.resetboard()
-    self.play_game()
-else:
+while True:
+  game.play_game()
+  choice = input("Play again? (y/n): ").lower()
+  if choice == 'y':
+    game.resetboard()
+  else:
     print("Thanks for playing!")
-    print("Final scores:", self.scoreboard)
+    print("Final scores:", game.scoreboard)
+    break
