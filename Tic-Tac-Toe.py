@@ -1,11 +1,16 @@
 class TicTacToe:
   def __init__(self, player1, player2):
-    self.board=[" "] * 9 
+    self.board=[" "] * 9 #Nine empty spaces
     self.player1 = player1
     self.player2 = player2
+    self.symbols ={self.player1: 'X', self.player2: "O"}
     self.current = self.player1
-    self.scoreboard ={self.player1: 0, self.player2: 0}
-  
+    self.scoreboard = {self.player1: 0, self.player2: 0}
+    self.rounds_played = 0
+  def resetboard(self):
+    self.board = [" "] * 9
+    self.current = self.player 1
+  #shows the board
   def TheBoard(self):  
     print("\n")
     print(self.board[0], "|", self.board[1], "|", self.board[2])
@@ -20,16 +25,19 @@ class TicTacToe:
         try:
             move = int(input("Pick a number (1-9): ")) - 1
             if 0 <= move <= 8:
+              if self.board[move] == " ":
                 return move
+              else: 
+                print("Pick a different spot. Spot is already taken")
             else:
                 print("Invalid input. Try again.")
         except ValueError:
             print("Please enter a number.")
      
-
+#updates the board with the current players move. 
   def update_board(self, index):
     if self.board[index] == " ":
-      self.board[index] = self.current
+      self.board[index] = self.symbols[self.current]
     else:
       print(" Pick a different move.")
       self.update_board(self.get_move())
