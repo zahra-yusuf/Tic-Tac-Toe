@@ -1,4 +1,5 @@
 class TicTacToe:
+  #assigning values to the attributes of object TicTacToe
   def __init__(self, player1, player2):
     self.board=[" "] * 9 #Nine empty spaces
     self.player1 = player1
@@ -7,10 +8,13 @@ class TicTacToe:
     self.current = self.player1
     self.scoreboard = {self.player1: 0, self.player2: 0}
     self.rounds_played = 0
+
+  #makes sure board is clear to start new game
   def resetboard(self):
     self.board = [" "] * 9
     self.current = self.player 1
-  #shows the board
+    
+  #creates the board
   def TheBoard(self):  
     print("\n")
     print(self.board[0], "|", self.board[1], "|", self.board[2])
@@ -22,7 +26,7 @@ class TicTacToe:
    #gets a move from the player       
   def get_move(self): 
     while True:
-        try:
+        try:                                                        #exception handling
             move = int(input("Pick a number (1-9): ")) - 1
             if 0 <= move <= 8:
               if self.board[move] == " ":
@@ -53,6 +57,7 @@ class TicTacToe:
           if self.board[combination[0]] != " ":
             return True
     return False
+    
 #checks if it is a draw
   def a_draw(self):
     return " " not in self.board 
