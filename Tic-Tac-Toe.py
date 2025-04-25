@@ -98,7 +98,7 @@ with open("TicTacToe.txt", "a") as a file:
   file.write(f"Final Scoreboard: {self.scoreboard}\n\n")
 
 #calling the class in the main program
-restboard()
+resetboard()
 game = TicTacToe("X", "O")
 game.play_game()
 
