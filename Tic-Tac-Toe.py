@@ -101,7 +101,7 @@ class TicTacToe:
 
 #calling the class in the main program
 game = TicTacToe("X", "O")
-while true:
+while True:
   game.play_game()
   choice = input("Play again? (y/n): ").lower()
   if choice == 'y':
