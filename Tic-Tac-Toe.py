@@ -1,3 +1,17 @@
+#Group project CIS 121
+# GEU AGUEK, NATALIE DEHWE, ZAHRA YUSUF
+
+'''This program is a TicTacToe game. 
+How it works: 
+There are two players in each game.User enters a number between 1 and 9.
+These numbers represent the position in which each player can place their X or O on the game board. 
+If a position is already taken, a player will have to find another position.
+Game ends once there is a winner or draw. The winner has 3 of their X's of O's aligned on the game board.
+Once game is over, the players can decide if they want to play again.'''
+
+
+
+
 class TicTacToe:
   #Initializing the Players, Board and Score
   def __init__(self, player1, player2):
