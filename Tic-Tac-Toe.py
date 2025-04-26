@@ -16,12 +16,12 @@ class TicTacToe:
   #Initializing the Players, Board and Score
   def __init__(self, player1, player2):
     self.board=[" "] * 9 #Nine empty spaces
-    self.player1 = player1
-    self.player2 = player2
-    self.symbols ={self.player1: 'X', self.player2: "O"}
+    self.player1 = player1 #name of player 1
+    self.player2 = player2 #name of player 2
+    self.symbols ={self.player1: 'X', self.player2: "O"} #the markers players use
     self.current = self.player1
-    self.scoreboard = {self.player1: 0, self.player2: 0}
-    self.rounds_played = 0
+    self.scoreboard = {self.player1: 0, self.player2: 0} #keeps track of score
+    self.rounds_played = 0 #tracks amount of rounds player
 
 #Resets all spots back to blanks
   def resetboard(self):
@@ -63,9 +63,9 @@ class TicTacToe:
   #Checks if board has winning combination
   def the_winner(self):
     wins = [
-      (0, 1, 2), (3, 4, 5), (6, 7, 8),
-      (0, 3, 6), (1, 4, 7), (2, 5, 8), 
-      (0, 4, 8), (2, 4, 6)
+      (0, 1, 2), (3, 4, 5), (6, 7, 8), #row
+      (0, 3, 6), (1, 4, 7), (2, 5, 8), #column
+      (0, 4, 8), (2, 4, 6) #diagonal
     ]
   #winning combinations 
     for combination in wins:
@@ -126,5 +126,5 @@ while True:
   else:
     print("Thanks for playing!")
     print("Final scores:", game.scoreboard)
-    break
+    break #exit the game
   
