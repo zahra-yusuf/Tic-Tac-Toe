@@ -104,10 +104,11 @@ class TicTacToe:
 game = TicTacToe("X", "O")
 while True:
   game.play_game()
+  #asks player if they want to play again
   choice = input("Play again? (y/n): ").lower()
   if choice == 'y':
     game.resetboard()
-else:
+  else:
     print("Thanks for playing!")
     print("Final scores:", game.scoreboard)
     break
