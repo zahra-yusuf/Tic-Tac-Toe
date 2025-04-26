@@ -104,7 +104,8 @@ class TicTacToe:
         if self.a_draw():
             print("It's a draw!")
             break
-
+          
+#I/O file that writes the results of the game
         self.switch_player()
     with open("TicTacToe.txt", "a") as file:
       file.write("Player, Result, Score\n")
